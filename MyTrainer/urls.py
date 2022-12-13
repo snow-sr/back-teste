@@ -27,12 +27,14 @@ from rest_framework.routers import DefaultRouter
 from core.views import (
     AtletaViewSet,
     TreinoViewSet,
+    ModalidadeViewSet,
     MyTokenObtainPairView,
 )
 
 router = DefaultRouter()
 router.register("atleta", AtletaViewSet)
 router.register("treino", TreinoViewSet)
+router.register("modalidade", ModalidadeViewSet)
 
 urlpatterns = [
     path("admin/", admin.site.urls),

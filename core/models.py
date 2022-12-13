@@ -25,13 +25,20 @@ class Atleta(AbstractUser):
         return self.nome
 
 
+class Modalidade(models.Model):
+    descricao = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.descricao
+
+
 class Treino(models.Model):
     atleta = models.ForeignKey(Atleta, on_delete=models.CASCADE)
     nome = models.CharField(max_length=100)
     descricao = models.CharField(max_length=100)
     linkStrava = models.CharField(max_length=200, null=True)
     createdAt = models.DateTimeField(auto_now_add=True)
-    modalidade = models.CharField(max_length=100, default="Treino")
+    modalidade = models.ForeignKey(Modalidade, on_delete=models.CASCADE)
 
     def __str__(self):
         return self

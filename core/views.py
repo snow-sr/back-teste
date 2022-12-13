@@ -1,5 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
-from core.models import Atleta, Treino
+from core.models import Atleta, Treino, Modalidade
 from core import serializer
 from rest_framework.permissions import IsAuthenticated
 
@@ -31,3 +31,8 @@ class AtletaViewSet(ModelViewSet):
 class TreinoViewSet(ModelViewSet):
     queryset = Treino.objects.all()
     serializer_class = serializer.TreinoSerializer
+
+
+class ModalidadeViewSet(ModelViewSet):
+    queryset = Modalidade.objects.all()
+    serializer_class = serializer.ModalidadeSerializer

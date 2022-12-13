@@ -1,4 +1,4 @@
-from core.models import Atleta, Treino
+from core.models import Atleta, Treino, Modalidade
 from rest_framework.serializers import ModelSerializer
 from django.contrib.auth.hashers import make_password, check_password
 
@@ -16,4 +16,10 @@ class AtletaSerializer(ModelSerializer):
 class TreinoSerializer(ModelSerializer):
     class Meta:
         model = Treino
+        fields = "__all__"
+
+
+class ModalidadeSerializer(ModelSerializer):
+    class Meta:
+        model = Modalidade
         fields = "__all__"
